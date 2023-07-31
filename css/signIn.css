@@ -1,0 +1,114 @@
+html {
+    font-size: 62.5%;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+* {
+    box-sizing: inherit;
+}
+body {
+    background: url('../images/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+:root{
+    --error-color: #ed1c24;
+}
+.main {
+    display: flex;
+    width: 1200px;
+    max-width: 100%;
+    margin: 0px auto;
+    padding-top: 100px;
+    
+}
+.title {
+    width: 100%;
+    font-size: 1.8rem;
+    padding-top: 100px;
+
+}
+.title-heading {
+    color: green;
+    display: flex;
+    justify-content: center;
+    font-size: 2.8rem;
+    align-items: center;
+}
+
+#wrapper{
+    min-height: 20vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#form-login {
+    position: relative;
+    max-width: 400px;
+    background: rgba(0, 0, 0, 0.5);
+    flex-grow: 1;
+    padding: 30px 30px 40px;
+    box-shadow: 0px 0px 17px 2px rgba(255, 255, 255, 0.8);;
+}
+
+
+.form-heading {
+    font-size: 25px;
+    color: #f5f5f5;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.form-group i{
+    color: #fff;
+    font-size: 14px;
+    padding-right: 10px;
+}
+.form-group {
+    display: flex;
+    border-bottom: 1px solid #fff;
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    
+}
+
+.form-input {
+    font-size: 14px;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: #f5f5f5;
+    flex-grow: 1;
+}
+.form-input::placeholder {
+    color: #f5f5f5;
+}
+#eyes i{
+    padding-right: 0;
+    cursor: pointer;
+}
+.form-submit {
+    background: transparent;
+    border: 1px solid #f5f5f5;
+    color: #fff;
+    width: 100%;
+    padding: 6px 0px;
+    transition: 0.25s ease-in-out;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.form-submit:hover {
+    border: 1px solid #54a0ff;
+    background-color: rgba(0, 0, 0, 0.678);
+    
+}
+.forgot-password{
+    display: block;
+    text-align: end;
+    text-decoration: none;
+    cursor: pointer;
+    color: aqua;
+}
