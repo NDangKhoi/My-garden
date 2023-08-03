@@ -122,7 +122,7 @@ img{
     font-family: var(--second-font);
     font-weight: var(--font-semi-bold);   
 }
-.nav__toggle,
+.nav__toogle,
 .nav__close{
     display: flex;
     font-size: 1.25rem;
@@ -242,7 +242,7 @@ img{
 }
 /*====================== BUTTON =======================*/
 .button{
-    background-color: hsla(0, 0%, 100%, .2);
+    background-color: hsla(0, 0%, 100%, 0.116);
     padding: 1.25rem 1.5rem;
     color: var(--title-color);
     display: inline-flex;
