@@ -1,0 +1,6 @@
+================ HEADER ===============
+.nav__logo
+Smart Garden
+
+.nave__link
+Home - Control - History - 

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css"></link>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <title>Document</title>
+</head>
+<body>
+      <!--================== HEADER =======================-->
+      <header class="header" id="header">
+        <nav class="nav container">
+          <a href="#" class="nav__logo">
+            Smart Garden
+          </a>
+          <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#home" class="nav__link">Home</a>
+              </li>
+              <li class="nav__item">
+                <a href="#control" class="nav__link">Control</a>
+              </li>
+              <li class="nav__item">
+                <a href="#history" class="nav__link">History</a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">Temp</a>
+              </li>
+            </ul>
+            <!--Close button-->
+            <div class="nav__close" id="nav-close">
+              <i class="ri-close-line"></i>
+            </div>
+          </div>
+          <!-- Toggle button -->
+          <div class="nav__toogle" id="nav-toggle">
+            <i class="ri-menu-fill"></i>
+          </div>
+        </nav>
+      </header>
+      <!--================== MAIN ==========================-->
+      <main class="main">
+        <section class="home section" id="home">
+          <img src="../image/home.jpg" alt="home image" class="home__bg">  
+          <div class="home__shawdow">
+
+          </div>
+          <div class="home__container conatainer grid">
+            <div class="home__data">
+              <h3 class="home__subtitle">
+                Welcom To Smart Garden
+              </h3>
+              <h1 class="home__title">
+                Monitor <br>
+                The Smart Garden
+              </h1>
+              <p class="home__description">
+                Giám sát và điều khiển khu vườn của bạn ngay bây giờ
+              </p>
+              <a href="#" class="button">
+                Start Your Control
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+            <div class="home__cards grid">
+              <article class="home__card">
+                <canvas class="home__card-chart" id="Light_Chart">
+                  <div class="home__card-shadow"></div>
+                </canvas>         
+              </article>
+              <article class="home__card">
+                <canvas class="home__card-chart" id="Temp_Chart">
+                  <div class="home__card-shadow"></div>
+                </canvas> 
+              </article>
+              <article class="home__card">
+                <canvas class="home__card-chart" id="Humi_Chart">
+                  <div class="home__card-shadow"></div>
+                </canvas> 
+              </article>
+              <article class="home__card">
+                <canvas class="home__card-chart" id="Soil_Chart">
+                  <div class="home__card-shadow"></div>
+                </canvas> 
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/chart.js"></script>
+<script src="../js/main.js"></script>
+</html>
