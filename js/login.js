@@ -72,7 +72,7 @@ signInWithEmailAndPassword(auth, email, password)
    const user = userCredential.user;
 
    alert('User loged in');
-   window.location.assign("../html/home.html")
+   window.location.replace("../html/home.html")
    // ...
  })
  .catch((error) => {
