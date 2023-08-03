@@ -71,7 +71,7 @@ signInWithEmailAndPassword(auth, email, password)
    // Signed in     const user = userCredential.user;
    const user = userCredential.user;
 
-   window.location.assign("../html/home.html")
+   window.location.assign("/html/home.html")
    // ...
  })
  .catch((error) => {
