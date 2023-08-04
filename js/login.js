@@ -70,7 +70,7 @@ signInWithEmailAndPassword(auth, email, password)
  .then((userCredential) => {
    // Signed in     const user = userCredential.user;
    const user = userCredential.user;
-   document.location="../html/forgotpage.html"
+   document.location="../html/home.html"
    // ...
  })
  .catch((error) => {

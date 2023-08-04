@@ -129,9 +129,9 @@ img{
     color: var(--title-color);
     cursor: pointer;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
     .container {
-        max-width: 400px;
+        max-width: 350px;
     }
 }
 @media screen and (max-width: 1023px) {
