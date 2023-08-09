@@ -1,3 +1,4 @@
+
 const api_url = 'https://vuonthongminh-328d9-default-rtdb.firebaseio.com/Status/Sensor.json'
 const light = document.getElementById('Light_Chart'),
       temp = document.getElementById('Temp_Chart'),
@@ -158,6 +159,7 @@ async function myCallback(){
     dataSoil.datasets[0].data.push(dataJson.Soil)
     soilChart.update()
 }
+
   
 
     

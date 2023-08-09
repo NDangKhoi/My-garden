@@ -22,13 +22,13 @@
                 <a href="#home" class="nav__link">Home</a>
               </li>
               <li class="nav__item">
-                <a href="#control" class="nav__link">Control</a>
+                <a href="#about" class="nav__link">Control</a>
               </li>
               <li class="nav__item">
-                <a href="#history" class="nav__link">History</a>
+                <a href="#monitor" class="nav__link">Monitor</a>
               </li>
               <li class="nav__item">
-                <a href="#" class="nav__link">Temp</a>
+                <a href="#" class="nav__link">Hisory</a>
               </li>
             </ul>
             <!--Close button-->
@@ -49,7 +49,7 @@
           <div class="home__shawdow">
 
           </div>
-          <div class="home__container co</section>natainer grid">
+          <div class="home__container container grid">
             <div class="home__data">
               <h3 class="home__subtitle">
                 Welcom To Smart Garden
@@ -61,10 +61,10 @@
               <p class="home__description">
                 Giám sát và điều khiển khu vườn của bạn ngay bây giờ
               </p>
-              <a href="#" class="button">
-                Start Your Control
+              <a href="#home" class="button">
+                Start Your Monitor
                 <i class="ri-arrow-right-line"></i>
-              </a>
+              </a> 
             </div>
             <div class="home__cards grid">
               <article class="home__card">
@@ -84,11 +84,131 @@
               </article>
               <article class="home__card">
                 <canvas class="home__card-chart" id="Soil_Chart">
-                  <div class="home__card-shadow"></div>
+                    <div class="home__card-shadow"></div>
                 </canvas> 
               </article>
             </div>
-          <!--================== MAIN ==========================-->   
+          </div>
+        </section>
+                  <!--================== ABOUT ==========================-->   
+        <section class="about section" id="about">
+          <div class="about__container container grid">
+            <div class="about__data">
+              <h2 class="section__title">
+                Control <br>
+                Your Garden
+              </h2>
+              <a href="#about" class="button">
+                Control 
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+            <div class="about__control">
+              <div class="about__control-body">
+                <h3 class="about__control-title">Control Device</h3>
+              </div>
+              <ul class="list__group list__group-control">
+                <li class="list__group-item d-flex">
+                  <div class="item">
+                    <img src="../images/Manual.png" class="img__item-group">
+                    <h5>Mode</h5>
+                  </div>     
+                  <div class="btn_control">
+                    <button type="button" class="btn__control-OFF" id="button-manual">Manual</button>
+                    <button type="button" class="btn__control-ON" id="button-auto">Auto</button>
+                  </div>
+                </li>
+                <li class="list__group-item d-flex">
+                  <div class="item">
+                    <img src="../images/Fan-OFF.png" class="img__item-group">
+                    <h5>Fan</h5>
+                  </div>     
+                  <div class="btn_control">
+                    <button type="button" class="btn__control-OFF" id="button__Fan-OFF">OFF</button>
+                    <button type="button" class="btn__control-ON" id="button__Fan-ON">ON</button>
+                  </div>
+                </li>
+                <li class="list__group-item d-flex">
+                  <div class="item">
+                    <img src="../images/Pump-OFF.png" class="img__item-group">
+                    <h5>Pump</h5>
+                  </div>     
+                  <div class="btn_control">
+                    <button type="button" class="btn__control-OFF" id="button__Pump-OFF">OFF</button>
+                    <button type="button" class="btn__control-ON" id="button__Pump-ON">ON</button>
+                  </div>
+                </li>
+                <li class="list__group-item d-flex">
+                  <div class="item">
+                    <img src="../images/Lamp-OFF.png" class="img__item-group">
+                    <h5>Lamp</h5>
+                  </div>     
+                  <div class="btn_control">
+                    <button type="button" class="btn__control-OFF" id="button__Lamp-OFF">OFF</button>
+                    <button type="button" class="btn__control-ON" id="button__Lamp-ON">ON</button>
+                  </div>
+                </li>
+                <li class="list__group-item d-flex">
+                  <div class="item">
+                    <img src="../images/Roof-OFF.png" class="img__item-group">
+                    <h5>Roof</h5>
+                  </div>     
+                  <div class="btn_control">
+                    <button type="button" class="btn__control-OFF" id="button__Roof-OFF">OPEN</button>
+                    <button type="button" class="btn__control-ON" id="button__Roof-ON">CLOSE</button>
+                  </div>
+                  
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </section>
+                   <!--================== Monitor< ==========================--> 
+        <section class="monitor section" id="monitor">
+          <h2 class="section__title">
+            Monitor <br>
+            Your Garden
+          </h2>
+          <div class="monitor__container container grid">
+            <article class="monitor__card">
+              <div class="monitor__image">
+                <h2 class="monitor__title">Temperature</h2>
+                <img src="../images/temp.png" alt="" class="monitor__img">
+              </div>
+              <canvas class="monitor__card-chart" id="Temp_HaftDoughtnutChart"></canvas>
+            </article>
+          </div>
+          <div class="monitor__container container grid">
+            <article class="monitor__card">
+              <div class="monitor__image">
+                <h2 class="monitor__title">Soil</h2>
+                <img src="../images/soil.png" alt="" class="monitor__img">
+              </div>
+              <canvas class="monitor__card-chart" id="Soil_HaftDoughtnutChart"></canvas>
+            </article>
+          </div>
+          <div class="monitor__container container grid">
+            <article class="monitor__card">
+              <div class="monitor__image">
+                <h2 class="monitor__title">Light</h2>
+                <img src="../images/soil.png" alt="" class="monitor__img">
+              </div>
+              <canvas class="monitor__card-chart" id="Light_HaftDoughtnutChart"></canvas>
+            </article>
+          </div>
+          <div class="monitor__container container grid">
+            <article class="monitor__card">
+              <div class="monitor__image">
+                <h2 class="monitor__title">Humidity</h2>
+                <img src="../images/soil.png" alt="" class="monitor__img">
+              </div>
+              <canvas class="monitor__card-chart" id="Humi_HaftDoughtnutChart"></canvas>
+              <div class="show__limit">
+                <div class="show__limt-low">low</div>
+                <div class="show__limit-high">high</div>
+              </div>
+            </article>
           </div>
         </section>
       </main>
@@ -96,4 +216,9 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="../js/chart.js"></script>
 <script src="../js/main.js"></script>
+<script src="../js/haft_doughtnut.js"></script>
+<script type="module" src="../js/data.js">
+  // Import the functions you need from the SDKs you need
+ 
+</script>
 </html>
