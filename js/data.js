@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getDatabase, ref, set, child } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+import { getDatabase, ref, set, child, onValue } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -78,3 +78,41 @@ function btnFanOff(){
  }
 
  /*=========================-- Read Data -=======================*/
+ const sttRoof = ref(database,'Status/Device/Stepper');
+ onValue(sttRoof,(snapshot)=>{
+    const dataRoof =snapshot.val();
+    if(dataRoof=='CLOSE'){
+        document.getElementById('roof-img').src='../images/Roof-ON.png'
+     }
+    else {
+        document.getElementById('roof-img').src='../images/Roof-OFF.png'
+    }
+ })
+ const mode = ref(database,'Status/Mode');
+ onValue(mode,(snapshot)=>{
+    const modeCurrent =snapshot.val();
+    if(modeCurrent=='Manual'){
+        document.getElementById('mode-img').src='../images/Manual.png'
+     }
+    else if(modeCurrent=='Auto'){
+        document.getElementById('mode-img').src='../images/Auto.png'
+    }
+    else{
+        document.getElementById('mode-img').src='../images/Customer.png'
+    }
+ })
+ function readOnValue(path,id,imgOff,imgON){
+    const StatusDevice = ref(database,'Status/Device/'+ path);
+    onValue(StatusDevice,(snapshot)=>{
+        const sttDevice = snapshot.val();
+        if(sttDevice=='ON'){
+            document.getElementById(id).src=imgON
+         }
+        else{
+            document.getElementById(id).src=imgOff
+        }
+    })
+ }
+ readOnValue('Fan','fan-img','../images/Fan-OFF.png','../images/Fan-ON.png')
+ readOnValue('Pump','pump-img','../images/Pump-OFF.png','../images/Pump-ON.png')
+ readOnValue('Lamp','lamp-img','../images/Lamp-OFF.png','../images/Lamp-ON.png')
