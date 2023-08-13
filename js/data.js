@@ -53,28 +53,28 @@ function btnAuto(){
    set(ref(database,'System/Mode'),'Auto')
 }
 function btnFanOff(){
-    set(ref(database,'System/Device/Fan'),'OFF')
+    set(ref(database,'System/Manual/Fan'),'OFF')
  }
  function btnFanOn(){
-    set(ref(database,'System/Device/Fan'),'ON')
+    set(ref(database,'System/Manual/Fan'),'ON')
  }
  function btnPumpOff(){
-    set(ref(database,'System/Device/Pump'),'OFF')
+    set(ref(database,'System/Manual/Pump'),'OFF')
  }
  function btnPumpOn(){
-    set(ref(database,'System/Device/Pump'),'ON')
+    set(ref(database,'System/Manual/Pump'),'ON')
  }
  function btnLampOff(){
-    set(ref(database,'System/Device/Lamp'),'OFF')
+    set(ref(database,'System/Manual/Lamp'),'OFF')
  }
  function btnLampOn(){
-    set(ref(database,'System/Device/Lamp'),'ON')
+    set(ref(database,'System/Manual/Lamp'),'ON')
  }
  function btnRoofOff(){
-    set(ref(database,'System/Device/Stepper'),'OFF')
+    set(ref(database,'System/Manual/Stepper'),'OFF')
  }
  function btnRoofOn(){
-    set(ref(database,'System/Device/Stepper'),'ON')
+    set(ref(database,'System/Manual/Stepper'),'ON')
  }
 
  /*=========================-- Read Data -=======================*/
@@ -116,3 +116,78 @@ function btnFanOff(){
  readOnValue('Fan','fan-img','../images/Fan-OFF.png','../images/Fan-ON.png')
  readOnValue('Pump','pump-img','../images/Pump-OFF.png','../images/Pump-ON.png')
  readOnValue('Lamp','lamp-img','../images/Lamp-OFF.png','../images/Lamp-ON.png')
+
+
+
+
+ /*=========================-- Read Limit value -=======================*/
+function showValue(path,id, unit){
+   const setValue = 'System/SetValue/'
+   const data = ref(database, setValue + path);
+   onValue(data,(snapshot)=>{
+      const val =snapshot.val();
+      document.getElementById(id).placeholder = val + unit
+   })
+}
+showValue('Humidity/LOW','humilower','%')
+showValue('Humidity/HIGH','humihigher','%')
+showValue('Light/LOW','lightlower','lux')
+showValue('Light/HIGH','lighthigher','lux')
+showValue('Soil/LOW','soillower','%')
+showValue('Soil/HIGH','soilhigher','%')
+showValue('Temp/LOW','templower','°C')
+showValue('Temp/HIGH','temphigher','°C')
+/*=========================-- Haft doughnut-=======================*/
+var data = {
+    datasets:[{
+        label: 'Soil',
+        data:[0, 1],
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',
+          'rgba(0, 0 ,0 ,0.1)'  
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)',
+          'rgba(0, 0 ,0 , 0)'
+        ],
+        boderWidth: 0.1
+    }]
+}
+var gaugeChartText = {
+    id:'gaugeChartText',
+    afterDatasetsDraw(chart, args, pluginOptions) {
+        const {ctx, data, chartArea:{top, bottom, left, right, width, height}, scales:{r}} = chart;
+        ctx.save();
+        const xCoor = chart.getDatasetMeta(0).data[0].x
+        const yCoor = chart.getDatasetMeta(0).data[0].y
+        const score = data.datasets[0].data[0]
+        ctx.font = '20px sans-serif'
+        ctx.textAlign = 'center'
+        ctx.fillText(score +'%', xCoor, yCoor - 40)
+    }
+}
+var config ={
+    type: 'doughnut',
+    data,
+    options: {
+        circumference: 180,
+        rotation: 270,
+        cutout: '90%',
+        aspectRatio: 2
+    },
+    plugins: [gaugeChartText]
+}
+
+let chartSoil = new Chart(
+    document.getElementById('Soil_HaftDoughtnutChart'),
+    config
+)
+soilChart();
+window.setInterval(soilChart,200);
+async function soilChart(){
+    const response = await fetch(api_url)
+    const dataJson = await response.json();
+    data.datasets[0].data[0] = dataJson.Soil
+    data.datasets[0].data[1] = 100 - dataJson.Soil
+    chartSoil.update()
+}
