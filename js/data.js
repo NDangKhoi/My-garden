@@ -117,6 +117,16 @@ function btnFanOff(){
  readOnValue('Pump','pump-img','../images/Pump-OFF.png','../images/Pump-ON.png')
  readOnValue('Lamp','lamp-img','../images/Lamp-OFF.png','../images/Lamp-ON.png')
 
+ const weaTher = ref(database,'Status/Sensor/Rain');
+ onValue(weaTher,(snapshot)=>{
+     const sttDevice = snapshot.val();
+     if(sttDevice=='Sunny'){
+         document.getElementById('weather').src='../images/Sunny.png'
+      }
+     else{
+         document.getElementById('weather').src='../images/Rain.png'
+     }
+ })
 
 
 

@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="../css/style.css"></link>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <title>Document</title>
 </head>
 <body>
@@ -167,10 +168,17 @@
         </section>
                    <!--================== Monitor< ==========================--> 
         <section class="monitor section" id="monitor">
-          <h2 class="section__title">
-            Monitor <br>
-            Your Garden
-          </h2>
+          <div class="monitor__header container grid">
+            <h2 class="section__title">
+              Monitor <br>
+              Your Garden
+            </h2>
+            <div class="monitor__weather">
+              <h2 class="monitor__title">Weather</h2>
+              <img src="../images/Sunny.png" alt="" class="monitor__img" id="weather">
+            </div>
+          </div>
+          
           <div class="monitor__container container grid">
             <article class="monitor__card">
               <div class="monitor__image">
@@ -180,10 +188,10 @@
               <canvas class="monitor__card-chart" id="Temp_HaftDoughtnutChart"></canvas>
               <div class="show__limit">
                 <div class="show__limit-low"><h6>low</h6>
-                  <h4><input id="templower" type="number" class="form-input" placeholder="0%"></h4>                 
+                  <h4><input id="templower" type="number" class="form-input" placeholder="0%" readonly></h4>                 
                 </div>
                 <div class="show__limit-high"><h6>high</h6>
-                  <h4><input id="temphigher" type="number" class="form-input" placeholder="0%"></h4>
+                  <h4><input id="temphigher" type="number" class="form-input" placeholder="0%" readonly></h4>
                 </div>
               </div>
             </article>
@@ -195,10 +203,10 @@
               <canvas class="monitor__card-chart" id="Soil_HaftDoughtnutChart"></canvas>
               <div class="show__limit">
                 <div class="show__limit-low"><h6>low</h6>
-                  <h4><input id="soillower" type="number" class="form-input" placeholder="0%"></h4>                 
+                  <h4><input id="soillower" type="number" class="form-input" placeholder="0%" readonly></h4>                 
                 </div>
                 <div class="show__limit-high"><h6>high</h6>
-                  <h4><input id="soilhigher" type="number" class="form-input" placeholder="0%"></h4>
+                  <h4><input id="soilhigher" type="number" class="form-input" placeholder="0%" readonly></h4>
                 </div>
               </div>
             </article>
@@ -210,10 +218,10 @@
               <canvas class="monitor__card-chart" id="Light_HaftDoughtnutChart"></canvas>
               <div class="show__limit">
                 <div class="show__limit-low"><h6>low</h6>
-                  <h4><input id="lightlower" type="number" class="form-input" placeholder="0%"></h4>                 
+                  <h4><input id="lightlower" type="number" class="form-input" placeholder="0%" readonly></h4>                 
                 </div>
                 <div class="show__limit-high"><h6>high</h6>
-                  <h4><input id="lighthigher" type="number" class="form-input" placeholder="0%"></h4>
+                  <h4><input id="lighthigher" type="number" class="form-input" placeholder="0%" readonly></h4>
                 </div>
               </div>
             </article>
@@ -225,10 +233,10 @@
               <canvas class="monitor__card-chart" id="Humi_HaftDoughtnutChart"></canvas>
               <div class="show__limit">
                 <div class="show__limit-low"><h6>low</h6>
-                  <h4><input id="humilower" type="number" class="form-input" placeholder="0%"></h4>                 
+                  <h4><input id="humilower" type="number" class="form-input" placeholder="0%" readonly></h4>                 
                 </div>
                 <div class="show__limit-high"><h6>high</h6>
-                  <h4><input id="humihigher" type="number" class="form-input" placeholder="0%"></h4>
+                  <h4><input id="humihigher" type="number" class="form-input" placeholder="0%" readonly></h4>
                 </div>
               </div>
             </article>
@@ -238,8 +246,15 @@
 
         <section class="history section" id="history">
           <div class="history__container">
+            <div class="history__datepicker">   
+              <div class="history__search">              
+                <input id="picker" class="datepicker" type="date" placeholder="Select Date">
+                <button id="search" class="btn-history">Search</button>
+              </div>    
+              <button id="pdf" class="btn-history">Export PDF</button>       
+            </div>          
             <section class="table__body">
-              <table class="mytable table-sortable">
+              <table id="table_history" class="mytable table-sortable">
                 <thead>
                   <tr>
                     <th scope="col">Date</th>
@@ -252,9 +267,9 @@
                     <th scope="col">Humi <br>(%)
                     </th>
                     <th scope="col">Light <br> (Lux)</th>
-                    <th scope="col">Rain</th>
+                    <th scope="col">Weather</th>
                     <th scope="col">Soil <br>(%)</th>
-                    <th scope="col">Temperature <br>(°C)</th>
+                    <th scope="col">Temp<br>(°C)</th>
                     <th scope="col">Reset</th>
                   </tr>
                 </thead>
@@ -266,12 +281,60 @@
           </div>
         </section>
 
-              <!--================== Scroll Up =======================-->
-        <a href="#" class="scrollup" id="scroll-up">
-          <i class="ri-arrow-up-line"></i>
-        </a>
+      
       </main>
+                            <!--================== Footer =======================-->
+      <footer class="footer" id="footer">
+        <div class="footer__container container grid">
+          <div class="footer__content grid">
+            <div>
+              <a href="#footer" class="footer__logo">Web Server</a>
+              <p class="footer__description">
+                Your <br> Smart Garden
+              </p>
+            </div>
+            <div class="footer__data grid">
+              <div>
+                <h3 class="footer__title">Contact</h3>
+                <ul class="footer__links">
+                  <li><a href="#footer" class="footer__link">Phone</a></li>
+                  <li><a href="" class="footer__link">Email</a></li>
+                </ul>
+              </div>  
+              <div>
+                <h3 class="footer__title">Document</h3>
+                <ul class="footer__links">
+                  <li><a href="https://firebase.google.com/docs/web/setup?hl=vi#available-libraries" target="_blank" class="footer__link">Firebase</a></li>
+                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" class="footer__link">Dev Web</a></li>
+                </ul>  
+              </div>  
+            </div>
+          </div> 
+          <div class="footer__group">
+            <div class="footer__social">
+              <a href="#" target="_blank" class="footer__social-link">
+                <i class="ri-facebook-line"></i>
+              </a>
+              <a href="#" target="_blank" class="footer__social-link">
+                <i class="ri-instagram-line"></i>
+              </a>
+              <a href="#" target="_blank" class="footer__social-link">
+                <i class="ri-youtube-line"></i>
+              </a>
+            </div>
+            <span class="footer__copy">
+              &#169; Copyright me. All rights reserved
+            </span>
+          </div>
+        </div>        
+      </footer>
+              <!--================== Scroll Up =======================-->
+              <a href="#" class="scrollup" id="scroll-up">
+                <i class="ri-arrow-up-line"></i>
+              </a>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="../js/autotable.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="../js/chart.js"></script>
 <script src="../js/main.js"></script>
@@ -281,4 +344,5 @@
 <script type="module" src="../js/humi.js"></script>
 <script type="module" src="../js/data.js"> 
 </script>
+
 </html>
