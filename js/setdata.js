@@ -90,24 +90,25 @@ function setvalueLow(id, path, comValue, limitValue, typeValue){
     if(valueid <= limitValue){
       if(typeValue === 'Low'){
         console.log('LOW')
-        if(valueid >= comValue){
-          alert('Giá trị không hợp lệ')
+        if(Number(valueid) >= Number(comValue)){
+          alert('Giá trị mức thấp không hợp lệ')
         }else{
           set(ref(database, 'System/SetValue/' + path),valueid)
-          alert('Cài đặt giá trị thành công')
+          alert('Cài đặt giá trị mức thấp thành công')
         }
-      }else if(typeValue === 'High'){
+      }
+      else if(typeValue === 'High'){
         console.log('HIGH')
-        if(valueid <= comValue){
-          alert('Giá trị không hợp lệ')
+        if(Number(valueid) <= Number(comValue)){
+          alert('Giá trị mức cao không hợp lệ')
         }else{
           set(ref(database, 'System/SetValue/' + path),valueid)
-          alert('Cài đặt giá trị thành công')
+          alert('Cài đặt giá trị mức cao thành công')
         }
       }
       
     }else{
-      alert('Giá trị không hợp lệ')
+      alert('Giá trị vượt ngưỡng giới hạn')
     }
   }
   else{
