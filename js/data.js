@@ -201,3 +201,5 @@ async function soilChart(){
     data.datasets[0].data[1] = 100 - dataJson.Soil
     chartSoil.update()
 }
+
+

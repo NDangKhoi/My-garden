@@ -32,6 +32,9 @@
               <li class="nav__item">
                 <a href="#history" class="nav__link">History</a>
               </li>
+              <li class="nav__item">
+                <a href="../index.html" class="nav__link">LogOut</a>
+              </li>
             </ul>
             <!--Close button-->
             <div class="nav__close" id="nav-close">
@@ -187,12 +190,15 @@
               </div>
               <canvas class="monitor__card-chart" id="Temp_HaftDoughtnutChart"></canvas>
               <div class="show__limit">
-                <div class="show__limit-low"><h6>low</h6>
-                  <h4><input id="templower" type="number" class="form-input" placeholder="0%" readonly></h4>                 
+                <div class="show__limit-low"><h6>Low</h6>
+                  <h4><input id="templower" type="number" class="form-input" placeholder="0%" readonly></h4>
+                  <input type="number" placeholder="value" class="form-input" id="temp_low">
+                  <button class="btn-set" id="setTemplow">Set</button>                 
                 </div>
-                <div class="show__limit-high"><h6>high</h6>
+                <div class="show__limit-high"><h6>High</h6>
                   <h4><input id="temphigher" type="number" class="form-input" placeholder="0%" readonly></h4>
-                </div>
+                  <input type="number" placeholder="value" class="form-input" id="temp_high">
+                  <button class="btn-set" id="setTemphigh">Set</button>
               </div>
             </article>
             <article class="monitor__card">
@@ -202,11 +208,15 @@
               </div>
               <canvas class="monitor__card-chart" id="Soil_HaftDoughtnutChart"></canvas>
               <div class="show__limit">
-                <div class="show__limit-low"><h6>low</h6>
-                  <h4><input id="soillower" type="number" class="form-input" placeholder="0%" readonly></h4>                 
+                <div class="show__limit-low"><h6>Low</h6>
+                  <h4><input id="soillower" type="number" class="form-input" placeholder="0%" readonly></h4>
+                  <input type="number" placeholder="value" class="form-input" id="soil_low">
+                  <button class="btn-set" id="setSoillow">Set</button>                    
                 </div>
                 <div class="show__limit-high"><h6>high</h6>
                   <h4><input id="soilhigher" type="number" class="form-input" placeholder="0%" readonly></h4>
+                  <input type="number" placeholder="value" class="form-input" id="soil_high">
+                  <button class="btn-set" id="setSoilhigh">Set</button>   
                 </div>
               </div>
             </article>
@@ -217,11 +227,15 @@
               </div>
               <canvas class="monitor__card-chart" id="Light_HaftDoughtnutChart"></canvas>
               <div class="show__limit">
-                <div class="show__limit-low"><h6>low</h6>
-                  <h4><input id="lightlower" type="number" class="form-input" placeholder="0%" readonly></h4>                 
+                <div class="show__limit-low"><h6>Low</h6>
+                  <h4><input id="lightlower" type="number" class="form-input" placeholder="0%" readonly></h4> 
+                  <input type="number" placeholder="value" class="form-input" id="light_low">
+                  <button class="btn-set" id="setLightlow">Set</button>                   
                 </div>
-                <div class="show__limit-high"><h6>high</h6>
+                <div class="show__limit-high"><h6>High</h6>
                   <h4><input id="lighthigher" type="number" class="form-input" placeholder="0%" readonly></h4>
+                  <input type="number" placeholder="value" class="form-input" id="light_high">
+                  <button class="btn-set" id="setLighthigh">Set</button>   
                 </div>
               </div>
             </article>
@@ -232,11 +246,15 @@
               </div>
               <canvas class="monitor__card-chart" id="Humi_HaftDoughtnutChart"></canvas>
               <div class="show__limit">
-                <div class="show__limit-low"><h6>low</h6>
-                  <h4><input id="humilower" type="number" class="form-input" placeholder="0%" readonly></h4>                 
+                <div class="show__limit-low"><h6>Low</h6>
+                  <h4><input id="humilower" type="number" class="form-input" placeholder="0%" readonly></h4> 
+                  <input type="number" placeholder="value" class="form-input" id="humi_low">
+                  <button class="btn-set" id="setHumilow">Set</button>                   
                 </div>
-                <div class="show__limit-high"><h6>high</h6>
+                <div class="show__limit-high"><h6>High</h6>
                   <h4><input id="humihigher" type="number" class="form-input" placeholder="0%" readonly></h4>
+                  <input type="number" placeholder="value" class="form-input" id="humi_high">
+                  <button class="btn-set" id="setHumihigh">Set</button>   
                 </div>
               </div>
             </article>
@@ -339,6 +357,7 @@
 <script src="../js/chart.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/history.js"></script>
+<script type="module" src="../js/setdata.js"></script>
 <script type="module" src="../js/temp.js"></script>
 <script type="module" src="../js/light.js"></script>
 <script type="module" src="../js/humi.js"></script>

@@ -23,6 +23,7 @@ const gaugeChartText = {
         const score = data.datasets[0].data[0]
         ctx.font = '20px sans-serif'
         ctx.textAlign = 'center'
+        ctx.color = 'white'
         ctx.fillText(score +'°C', xCoor, yCoor - 40)
     }
 }
